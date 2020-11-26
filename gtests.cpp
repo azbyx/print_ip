@@ -1,21 +1,20 @@
 #define NDEBUG
 
-//#include <gtest/gtest.h>
-//#include "headers/generators_ip.h"
+#include <gtest/gtest.h>
 //#include "headers/print_ip.h"
 
-/*
-TEST(Traversing_a_container_with_its_own_iterator, by_simple_for) {
+
+TEST(Empty_test, for_something) {
 
     // Arrange
 
     // Act
 
     // Assert
-    ASSERT_EQ(size_arr, size_list);
+    ASSERT_EQ(1, 1);
 
 }
-
+/*
 TEST(Traversing_a_container_with_its_own_iterator, by_range_for) {
 
     // Arrange
@@ -97,11 +96,11 @@ TEST(Filling_container_using_the_Emplace_method, by_value) {
     ASSERT_EQ(requires_size, size_list_rv);
 
 }
-
+*/
 int main(int argc, char** argv) {
 
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 
 }
-*/
+
