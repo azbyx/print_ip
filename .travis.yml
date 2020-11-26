@@ -1,0 +1,28 @@
+language: cpp
+dist: focal
+before_script:
+- cd ../doxygen
+- sudo apt install graphviz -y
+- sudo apt install ./doxygen_1.8.19_amd64.deb
+- doxygen --version
+- cd ..
+script:
+- cmake .
+- cmake --build .
+- cmake --build . --target test
+- cmake --build . --target package
+- doxygen Doxyfile
+deploy:
+- provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+    local_dir: ./html
+    keep_history: true
+    on:
+      branch: main
+- provider: script
+    skip_cleanup: true
+    script:
+    - curl -T print_ip-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uazbyx:$BINTRAY_API_K "https://api.bintray.com/content/azbyx/azbyx/print_ip/$TRAVIS_BUILD_NUMBER/print_ip-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+    on:
+      branch: main
