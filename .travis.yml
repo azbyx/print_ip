@@ -1,25 +1,25 @@
 language: cpp
 dist: focal
 before_script:
-- cd ../doxygen
-- sudo apt install graphviz -y
-- sudo apt install ./doxygen_1.8.19_amd64.deb
-- doxygen --version
-- cd ..
+#- cd ../doxygen
+#- sudo apt install graphviz -y
+#- sudo apt install ./doxygen_1.8.19_amd64.deb
+#- doxygen --version
+#- cd ..
 script:
 - cmake .
 - cmake --build .
 - cmake --build . --target test
 - cmake --build . --target package
-- doxygen Doxyfile
+#- doxygen Doxyfile
 deploy:
-- provider: pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-    local_dir: ./html
-    keep_history: true
-    on:
-      branch: master
+#- provider: pages
+#    skip_cleanup: true
+#    github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+#    local_dir: ./html
+#    keep_history: true
+#    on:
+#      branch: master
 - provider: script
     skip_cleanup: true
     script:
