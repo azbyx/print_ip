@@ -1,0 +1,9 @@
+Architecture: amd64
+Description: print_ip built using CMake
+Maintainer: azbyx@inbox.ru
+Package: print_ip
+Priority: optional
+Section: devel
+Version: 0.0.7
+Installed-Size: 4613
+

@@ -1,0 +1,1 @@
+/usr/bin/g++    -rdynamic CMakeFiles/tests_print_ip.dir/gtests.cpp.o  -o tests_print_ip  googletest/googlemock/gtest/libgtest.a -pthread 
