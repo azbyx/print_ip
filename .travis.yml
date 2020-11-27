@@ -14,7 +14,6 @@ deploy:
   - provider: pages
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
-    local_dir: ./html
     keep_history: true
   - provider: script
     skip_cleanup: true
