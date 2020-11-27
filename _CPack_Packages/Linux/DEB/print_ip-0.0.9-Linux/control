@@ -4,6 +4,6 @@ Maintainer: azbyx@inbox.ru
 Package: print_ip
 Priority: optional
 Section: devel
-Version: 0.0.7
+Version: 0.0.9
 Installed-Size: 4613
 
