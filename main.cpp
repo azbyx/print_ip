@@ -22,7 +22,7 @@ int main(int, char**){
     generator_ip(vec);
     generator_ip(lst);
     generator_ip(tpl);
-    [[maybe_unused]] char a;
-    a = getchar();
+    //[[maybe_unused]] char a;
+    //a = getchar();
     return 0;
 }

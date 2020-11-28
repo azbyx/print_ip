@@ -1,13 +1,13 @@
 /**
     \file
-    \mainpage Домашнее задание №3 курса "C++ Developer. Professional" ООО «Отус онлайн-образование»
-	\brief Домашнее задание №3 курса "C++ Developer. Professional" ООО «Отус онлайн-образование»
+    \mainpage Homework №3 of the course "C ++ Developer. Professional" LLC "Otus Online Education"
+	\brief Homework №3 of the course "C ++ Developer. Professional" LLC "Otus Online Education"
 	\author Bulanov Sergey
 	\version 0.0.1
 	\date Novemer 2020
-	\warning Работа сделана в учебных целях
+	\warning This work was done for educational purposes.
 
-*Реализация перегрузок функции печати условного IP-адреса посредством механизма SFINAE.
+*Implementing overloads of the function of printing some IP-address using SFINAE.
 */
 
 #ifndef PRINT_IP_H
@@ -56,7 +56,7 @@ namespace tmp_ {
 
         Integral_type_printer(const T& in_param) :
                                     value(in_param),
-                                    uchar_represent(reinterpret_cast<unsigned char*>(&value)),
+                                    byte_represent(reinterpret_cast<uint8_t*>(&value)),
                                     type_size(sizeof(T) - 1){}
 
 
@@ -65,20 +65,22 @@ namespace tmp_ {
             size_t index = in_param.type_size;
 
             cur_stream << in_param.get_by_idx(index);
-            for(; index; cur_stream << '.' << in_param.get_by_idx(--index));
+            while(index) {
+                cur_stream << '.' << in_param.get_by_idx(--index);
+            }
 
             return cur_stream;
 
         }
 
       private:
-
+        //here is an implicit conversion, maybe an explicit one was needed? (static_cast<unsigned>)
         unsigned get_by_idx(const size_t& idx) const {
-            return static_cast<unsigned>(uchar_represent[idx]);
+            return byte_represent[idx];
         }
 
         T value;
-        unsigned char* uchar_represent;
+        uint8_t* byte_represent;
         const size_t type_size;
     };
 
@@ -95,7 +97,7 @@ namespace tmp_ {
     template <typename ... Ts>
     std::ostream& operator<<(std::ostream &cur_stream, const std::tuple<Ts...>& in_parameter) {
 
-        auto print_to_stream = [&cur_stream](const auto &...lyambda_args) {
+        auto print_to_stream = [&cur_stream](const auto&... lyambda_args) {
             print_args(cur_stream, lyambda_args...);
         };
 
@@ -109,14 +111,11 @@ namespace tmp_ {
 
 
 /**
-	\brief Печать условного IP-адреса implimentation for std::string
-	\author Bulanov Sergey
-	\version 0.0.1
-	\date Novemer 2020
+	\brief Printing some IP address implementation for a std::string.
 
-*Включается при входном аргументе типа std::string.
+*Fires with an input argument of type std::string.
 *
-*В результате выводится содежимое строки - как есть.
+*As a result, the content of the string is displayed as is.
 */
 template<typename T>
 typename tmp_::enable_string_t<T>
@@ -129,14 +128,11 @@ typename tmp_::enable_string_t<T>
 
 
 /*!
-	\brief Печать условного IP-адреса implimentation for integral types
-	\author Bulanov Sergey
-	\version 0.0.1
-	\date Novemer 2020
+	\brief Printing some IP-address implementation for integral types
 
-*Включается при входном аргументе интегрального типа, за исключением типа bool.
+*Turns on when an input argument of integral type, except for bool type.
 
-*Поразрядно выводится содержимое типа начиная со старшего,разделенные символом '.'.
+*The content of the type is displayed bit by bit, starting with the most significant, separated by the '.' character.
 */
 
 template<typename T>
@@ -151,14 +147,11 @@ typename tmp_::enable_integral_t<T>
 }
 
 /**
-	\brief Печать условного IP-адреса implimentation for std::vector and std::list
-	\author Bulanov Sergey
-	\version 0.0.1
-	\date Novemer 2020
+	\brief Printing some IP-address implimentation for std::vector and std::list
 
-*Включается при входном аргументе типов std::vector и std::list.
+*Turns on when an input argument of std::vector and std::list types.
 
-*Последовательно выводится содержимое контейнера с разделителем - '.'.
+*The contents of the container are displayed sequentially, separated by the '.' character.
 */
 
 template<typename T, template<typename> class Cont>
@@ -173,15 +166,11 @@ typename tmp_::enable_contaners_t<T, Cont>
 
 
 /**
-	\brief Печать условного IP-адреса implimentation for std::tuple
-	\author Bulanov Sergey
-	\version 0.0.1
-	\date Novemer 2020
-	\warning Опциональное задание.
+	\brief Printing some IP-address implimentation for a std::tuple
 
-*Включается при входном аргументе типов std::tuple, у которого все элементы одинакового типа.
+*Turns on when an input argument of std::tuple type has all elements of the same type.
 
-*Последовательно выводится содержимое контейнера с разделителем - '.'.
+*The contents of the container are displayed sequentially, separated by the '.' character.
 */
 template<typename T, typename... Tail>
 typename tmp_::enable_all_the_same_t<T, Tail...>
