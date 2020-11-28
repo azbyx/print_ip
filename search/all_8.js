@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['uchar_5frepresent_15',['uchar_represent',['../classtmp___1_1_integral__type__printer.html#a15c70def68b105dcfe93024990b67c7d',1,'tmp_::Integral_type_printer']]]
+  ['print_5fargs_12',['print_args',['../namespacetmp__.html#a85426bf3f192c3544912df5c0a482401',1,'tmp_']]],
+  ['print_5fip_2eh_13',['print_ip.h',['../print__ip_8h.html',1,'']]]
 ];

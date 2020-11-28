@@ -1,15 +1,15 @@
 var indexSectionsWithContent =
 {
-  0: "_degioptuvÄ",
+  0: "_bdeghioptv",
   1: "i",
   2: "t",
-  3: "gp",
+  3: "p",
   4: "giop",
-  5: "tuv",
+  5: "btv",
   6: "e",
   7: "o",
   8: "_d",
-  9: "Ä"
+  9: "h"
 };
 
 var indexSectionNames =
