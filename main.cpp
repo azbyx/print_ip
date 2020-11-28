@@ -1,10 +1,6 @@
 #define NDEBUG
 
-#include <iostream>
-#include <tuple>
 #include "headers/print_ip.h"
-
-
 
 int main(int, char**){
 

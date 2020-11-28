@@ -16,14 +16,12 @@ add_subdirectory(
 
 
 add_executable(${NAME_EXECUTABLE} 
-	./main.cpp 
-	./headers/generators_ip.h
+	./main.cpp
 	./headers/print_ip.h
 )
 
 add_executable(${NAME_TEST} 
 	./gtests.cpp
-	./headers/generators_ip.h
 	./headers/print_ip.h
 )
 
