@@ -94,8 +94,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classtmp___1_1_integral__type__printer-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -113,26 +113,23 @@ Collaboration diagram for tmp_::Integral_type_printer&lt; T, class &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8d80909997d17197ccf5251d5e911c6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtmp___1_1_integral__type__printer.html#a8d80909997d17197ccf5251d5e911c6c">Integral_type_printer</a> ()=delete</td></tr>
-<tr class="separator:a8d80909997d17197ccf5251d5e911c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7a1668ecc63ce235dee74eafd7f0136"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtmp___1_1_integral__type__printer.html#af7a1668ecc63ce235dee74eafd7f0136">Integral_type_printer</a> (const <a class="el" href="classtmp___1_1_integral__type__printer.html">Integral_type_printer</a> &amp;in_param)=delete</td></tr>
-<tr class="separator:af7a1668ecc63ce235dee74eafd7f0136"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a564f4dac1e9dc837db3c058276cd0013"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtmp___1_1_integral__type__printer.html#a564f4dac1e9dc837db3c058276cd0013">Integral_type_printer</a> (const T &amp;in_param)</td></tr>
 <tr class="separator:a564f4dac1e9dc837db3c058276cd0013"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a0720ff26d114e3a24a3edaee33f9f5ae"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtmp___1_1_integral__type__printer.html#a0720ff26d114e3a24a3edaee33f9f5ae">get_by_idx</a> (const size_t &amp;idx) const</td></tr>
-<tr class="separator:a0720ff26d114e3a24a3edaee33f9f5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aaf735183e52d5d11db8b1dbcd1d97709"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtmp___1_1_integral__type__printer.html#aaf735183e52d5d11db8b1dbcd1d97709">value</a></td></tr>
-<tr class="separator:aaf735183e52d5d11db8b1dbcd1d97709"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46aa4773ca9b1eb4f56064c5ad10c80e"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtmp___1_1_integral__type__printer.html#a46aa4773ca9b1eb4f56064c5ad10c80e">byte_represent</a></td></tr>
-<tr class="separator:a46aa4773ca9b1eb4f56064c5ad10c80e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b6dbdba42087854cac7892a2727ce21"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtmp___1_1_integral__type__printer.html#a6b6dbdba42087854cac7892a2727ce21">type_size</a></td></tr>
-<tr class="separator:a6b6dbdba42087854cac7892a2727ce21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e2664fd6e29ff45f7e028670b03b41"><td class="memItemLeft" >union {</td></tr>
+<tr class="memitem:ae47dd6f5e6cacd1874540cb58799b342"><td class="memItemLeft" >&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<a class="el" href="classtmp___1_1_integral__type__printer.html#a7f3cb3b81cd40800cd28b6cc438b76d6">byte_represent</a> [sizeof(T)]</td></tr>
+<tr class="separator:ae47dd6f5e6cacd1874540cb58799b342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36981b362f9d345d8aaba57d40c6b53a"><td class="memItemLeft" >&#160;&#160;&#160;T&#160;&#160;&#160;<a class="el" href="classtmp___1_1_integral__type__printer.html#aaf735183e52d5d11db8b1dbcd1d97709">value</a></td></tr>
+<tr class="separator:a36981b362f9d345d8aaba57d40c6b53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e2664fd6e29ff45f7e028670b03b41"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a40e2664fd6e29ff45f7e028670b03b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a1faeab59bf616716db94ed5b50c575e5"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtmp___1_1_integral__type__printer.html#a1faeab59bf616716db94ed5b50c575e5">type_size</a> = sizeof(T) - 1</td></tr>
+<tr class="separator:a1faeab59bf616716db94ed5b50c575e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -140,63 +137,8 @@ Friends</h2></td></tr>
 <tr class="separator:ab3cc6603cc970d6a088be3f5a6b8794d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8d80909997d17197ccf5251d5e911c6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d80909997d17197ccf5251d5e911c6c">&#9670;&nbsp;</a></span>Integral_type_printer() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , class  = enable_integral_t&lt;T&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtmp___1_1_integral__type__printer.html">tmp_::Integral_type_printer</a>&lt; T, class &gt;::<a class="el" href="classtmp___1_1_integral__type__printer.html">Integral_type_printer</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af7a1668ecc63ce235dee74eafd7f0136"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7a1668ecc63ce235dee74eafd7f0136">&#9670;&nbsp;</a></span>Integral_type_printer() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , class  = enable_integral_t&lt;T&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtmp___1_1_integral__type__printer.html">tmp_::Integral_type_printer</a>&lt; T, class &gt;::<a class="el" href="classtmp___1_1_integral__type__printer.html">Integral_type_printer</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtmp___1_1_integral__type__printer.html">Integral_type_printer</a>&lt; T, class &gt; &amp;&#160;</td>
-          <td class="paramname"><em>in_param</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a564f4dac1e9dc837db3c058276cd0013"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a564f4dac1e9dc837db3c058276cd0013">&#9670;&nbsp;</a></span>Integral_type_printer() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a564f4dac1e9dc837db3c058276cd0013">&#9670;&nbsp;</a></span>Integral_type_printer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -217,35 +159,6 @@ template&lt;typename T , class  = enable_integral_t&lt;T&gt;&gt; </div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0720ff26d114e3a24a3edaee33f9f5ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0720ff26d114e3a24a3edaee33f9f5ae">&#9670;&nbsp;</a></span>get_by_idx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , class  = enable_integral_t&lt;T&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned <a class="el" href="classtmp___1_1_integral__type__printer.html">tmp_::Integral_type_printer</a>&lt; T, class &gt;::get_by_idx </td>
-          <td>(</td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>idx</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -292,32 +205,38 @@ template&lt;typename T , class  = enable_integral_t&lt;T&gt;&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a46aa4773ca9b1eb4f56064c5ad10c80e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46aa4773ca9b1eb4f56064c5ad10c80e">&#9670;&nbsp;</a></span>byte_represent</h2>
+<a id="a40e2664fd6e29ff45f7e028670b03b41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e2664fd6e29ff45f7e028670b03b41">&#9670;&nbsp;</a></span>@1</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , class  = enable_integral_t&lt;T&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t* <a class="el" href="classtmp___1_1_integral__type__printer.html">tmp_::Integral_type_printer</a>&lt; T, class &gt;::byte_represent</td>
+          <td class="memname">union { ... } </td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a6b6dbdba42087854cac7892a2727ce21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b6dbdba42087854cac7892a2727ce21">&#9670;&nbsp;</a></span>type_size</h2>
+<a id="a7f3cb3b81cd40800cd28b6cc438b76d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f3cb3b81cd40800cd28b6cc438b76d6">&#9670;&nbsp;</a></span>byte_represent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , class  = enable_integral_t&lt;T&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="classtmp___1_1_integral__type__printer.html">tmp_::Integral_type_printer</a>&lt; T, class &gt;::byte_represent[sizeof(T)]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1faeab59bf616716db94ed5b50c575e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1faeab59bf616716db94ed5b50c575e5">&#9670;&nbsp;</a></span>type_size</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -328,12 +247,12 @@ template&lt;typename T , class  = enable_integral_t&lt;T&gt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const size_t <a class="el" href="classtmp___1_1_integral__type__printer.html">tmp_::Integral_type_printer</a>&lt; T, class &gt;::type_size</td>
+          <td class="memname">constexpr size_t <a class="el" href="classtmp___1_1_integral__type__printer.html">tmp_::Integral_type_printer</a>&lt; T, class &gt;::type_size = sizeof(T) - 1</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -347,19 +266,11 @@ template&lt;typename T , class  = enable_integral_t&lt;T&gt;&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , class  = enable_integral_t&lt;T&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">T <a class="el" href="classtmp___1_1_integral__type__printer.html">tmp_::Integral_type_printer</a>&lt; T, class &gt;::value</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -370,7 +281,7 @@ template&lt;typename T , class  = enable_integral_t&lt;T&gt;&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 28 2020 09:58:57 for Home work №3 &quot;C++ Developer. Professional&quot; OTUS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 9 2020 09:12:06 for Home work №3 &quot;C++ Developer. Professional&quot; OTUS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

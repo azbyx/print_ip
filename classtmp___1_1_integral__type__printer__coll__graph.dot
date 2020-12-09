@@ -4,11 +4,13 @@ digraph "tmp_::Integral_type_printer&lt; T, class &gt;"
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="{tmp_::Integral_type\l_printer\< T, class \>\n||+ Integral_type_printer()\l+ Integral_type_printer()\l+ Integral_type_printer()\l- get_by_idx()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [label="{tmp_::Integral_type\l_printer\< T, class \>\n||+ Integral_type_printer()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -type_size" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node2 [label="{const size_t\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -byte_represent" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node3 [label="{uint8_t *\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -value" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node4 [label="{T\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 [label="{static constexpr size_t\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -@1" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node3 [label="{anonymous:-@1\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +byte_represent" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node4 [label="{uint8_t\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node5 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +value" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node5 [label="{T\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }
