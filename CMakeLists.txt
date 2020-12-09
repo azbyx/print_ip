@@ -29,7 +29,7 @@ target_link_libraries(${NAME_TEST} PRIVATE
     gtest
 )
 
-set_target_properties(${NAME_EXECUTABLE} ${NAME_TEST} PROPERTIES
+set_target_properties(${NAME_EXECUTABLE} PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
 )

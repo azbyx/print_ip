@@ -25,7 +25,6 @@
 #include <string>
 #include <vector>
 #include <tuple>
-#include <type_traits>
 #include <experimental/iterator>
 
 namespace tmp_ {
@@ -35,7 +34,7 @@ namespace tmp_ {
 
 
     template<typename T, template<typename> class Cont>
-    using enable_containers_t = std::enable_if_t<std::is_same_v<std::decay_t<Cont<T>>, std::vector<T>>
+    using enable_contaners_t = std::enable_if_t<std::is_same_v<std::decay_t<Cont<T>>, std::vector<T>>
                                   || std::is_same_v<std::decay_t<Cont<T>>, std::list<T>>>;
 
 
@@ -51,22 +50,38 @@ namespace tmp_ {
     class Integral_type_printer {
 
       public:
-        Integral_type_printer(const T& in_param) : value(in_param){}
+
+        Integral_type_printer() = delete;
+        Integral_type_printer(const Integral_type_printer& in_param) = delete;
+
+        Integral_type_printer(const T& in_param) :
+                                    value(in_param),
+                                    byte_represent(reinterpret_cast<uint8_t*>(&value)),
+                                    type_size(sizeof(T) - 1){}
+
 
         friend std::ostream& operator<<(std::ostream &cur_stream, const Integral_type_printer& in_param) {
 
-            for(size_t index = in_param.type_size; index; index--)
-                cur_stream << +in_param.byte_represent[index] << '.';
+            size_t index = in_param.type_size;
 
-            return cur_stream << +in_param.byte_represent[0];
+            cur_stream << in_param.get_by_idx(index);
+            while(index) {
+                cur_stream << '.' << in_param.get_by_idx(--index);
+            }
+
+            return cur_stream;
+
         }
 
       private:
-        union {
-            uint8_t byte_represent[sizeof(T)];
-            T value;
-        };
-        static constexpr size_t type_size = sizeof(T) - 1;
+        //here is an implicit conversion, maybe an explicit one was needed? (static_cast<unsigned>)
+        unsigned get_by_idx(const size_t& idx) const {
+            return byte_represent[idx];
+        }
+
+        T value;
+        uint8_t* byte_represent;
+        const size_t type_size;
     };
 
 
@@ -140,7 +155,7 @@ typename tmp_::enable_integral_t<T>
 */
 
 template<typename T, template<typename> class Cont>
-typename tmp_::enable_containers_t<T, Cont>
+typename tmp_::enable_contaners_t<T, Cont>
   generator_ip(const Cont<T>& param_) {
 
     DEBUG_MODE(std::cout << _PRETTY_ << std::endl);

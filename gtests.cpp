@@ -1,74 +1,102 @@
 #define NDEBUG
 
-#include "headers/print_ip.h"
 #include <gtest/gtest.h>
-#include <iostream>
-#include <sstream>
+//#include "headers/print_ip.h"
 
 
-TEST(Test_integral_value, SNINAE) {
+TEST(Empty_test, for_something) {
 
-    std::ostringstream local;
-    auto cout_buff = std::cout.rdbuf();
-    std::cout.rdbuf(local.rdbuf());
+    // Arrange
 
-    generator_ip(char(-1));
-    generator_ip(short(0));
-    generator_ip(2130706433);
-    generator_ip(8875824491850138409L);
+    // Act
 
-    std::cout.rdbuf(cout_buff);
+    // Assert
+    ASSERT_EQ(1, 1);
 
-    ASSERT_EQ(local.str(), "255\n0.0\n127.0.0.1\n123.45.67.89.101.112.131.41\n");
+}
+/*
+TEST(Traversing_a_container_with_its_own_iterator, by_range_for) {
+
+    // Arrange
+    LList_ext_realoc<size_t> custom_list;
+    const size_t size_arr{5};
+    size_t data[] = {1, 1, 2, 3, 5, 8, 13};
+    size_t size_list{0};
+
+    // Act
+    for (size_t i = 0; i < size_arr; i++){
+            custom_list.Add(data[i]);
+    }
+    for ([[maybe_unused]]const auto& it : custom_list){
+            ++size_list;
+    }
+
+    // Assert
+    ASSERT_EQ(size_arr, size_list);
 
 }
 
-TEST(Test_string_value, SNINAE) {
+TEST(Filling_container_using_the_Add_method, with_lvalue) {
 
-    std::ostringstream local;
-    auto cout_buff = std::cout.rdbuf();
-    std::cout.rdbuf(local.rdbuf());
+    // Arrange
+    LList_ext_realoc<bunch<size_t>> custom_list_lv;
+    LList_ext_realoc<bunch<size_t>>::size_type size_list_lv{0},
+                                               requires_size{SZ + 5};
 
-    generator_ip(std::string("qwerty.123,098?567"));
+    // Act
+    for (size_t i = 0; i < requires_size; i++){
+            bunch<size_t> fct{i, MyFactorial(i)};
+            custom_list_lv.Add(fct);
+    }
+    for (auto it = custom_list_lv.begin(); it != custom_list_lv.end(); ++it){
+            ++size_list_lv;
+    }
 
-    std::cout.rdbuf(cout_buff);
-
-    ASSERT_EQ(local.str(), "qwerty.123,098?567\n");
-
-}
-
-TEST(Test_containers_value, SNINAE) {
-
-    std::ostringstream local;
-    auto cout_buff = std::cout.rdbuf();
-    std::cout.rdbuf(local.rdbuf());
-    std::vector vec{127, 1, 3, 11};
-    std::list lst{127, 1, 3, 255, 11};
-
-    generator_ip(vec);
-    generator_ip(lst);
-
-    std::cout.rdbuf(cout_buff);
-
-    ASSERT_EQ(local.str(), "127.1.3.11\n127.1.3.255.11\n");
+    // Assert
+    ASSERT_EQ(requires_size, size_list_lv);
 
 }
 
-TEST(Test_tuple_value, SNINAE) {
+TEST(Filling_container_using_the_Add_method, with_rvalue) {
 
-    std::ostringstream local;
-    auto cout_buff = std::cout.rdbuf();
-    std::cout.rdbuf(local.rdbuf());
-    auto tpl = std::make_tuple(12, 13, 14, 15);
+    // Arrange
+    LList_ext_realoc<bunch<size_t>> custom_list_rv;
+    LList_ext_realoc<bunch<size_t>>::size_type size_list_rv{0},
+                                               requires_size{SZ + 5};
 
-    generator_ip(tpl);
+    // Act
+    for (size_t  i = 0; i < requires_size; i++){
+            custom_list_rv.Add(bunch<size_t>{i, MyFactorial(i)});
+    }
+    for (auto it = custom_list_rv.begin(); it != custom_list_rv.end(); ++it){
+            ++size_list_rv;
+    }
 
-    std::cout.rdbuf(cout_buff);
-
-    ASSERT_EQ(local.str(), "12.13.14.15\n");
+    // Assert
+    ASSERT_EQ(requires_size, size_list_rv);
 
 }
 
+TEST(Filling_container_using_the_Emplace_method, by_value) {
+
+    // Arrange
+    LList_ext_realoc<bunch<size_t>> custom_list_rv;
+    LList_ext_realoc<bunch<size_t>>::size_type size_list_rv{0},
+                                               requires_size{SZ + 5};
+
+    // Act
+    for (size_t  i = 0; i < requires_size; i++){
+            custom_list_rv.Emplace(i, MyFactorial(i));
+    }
+    for (auto it = custom_list_rv.begin(); it != custom_list_rv.end(); ++it){
+            ++size_list_rv;
+    }
+
+    // Assert
+    ASSERT_EQ(requires_size, size_list_rv);
+
+}
+*/
 int main(int argc, char** argv) {
 
     testing::InitGoogleTest(&argc, argv);
